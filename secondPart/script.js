@@ -28,7 +28,7 @@ switch (day)
     case 6: day = "Суббота"; break;
   }
 
-let marryXmas = document.querySelector('.marryXmas');
+const marryXmas = document.querySelector('.marryXmas');
 marryXmas.innerHTML = `${greeting}
 <br>
 Сегодня: ${day}

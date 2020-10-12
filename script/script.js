@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
               timerHours.textContent = ('0' + timer.hours).slice(-2);
               timerMinutes.textContent = ('0' + timer.minutes).slice(-2);
               timerSeconds.textContent = ('0' + timer.seconds).slice(-2);
-            }else {
+            } else {
               timerHours.textContent = '00';
               timerMinutes.textContent = '00';
               timerSeconds.textContent = '00';

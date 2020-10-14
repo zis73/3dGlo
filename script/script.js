@@ -60,34 +60,47 @@ window.addEventListener('DOMContentLoaded', () => {
   const togglePopUp = () => {
     const popup = document.querySelector('.popup'),
       popupClose = document.querySelector('.popup-close'),
-      popupBtn = document.querySelectorAll('.popup-btn');
+      popupBtn = document.querySelectorAll('.popup-btn'),
+      popupContent = document.querySelector('.popup-content');
     
     let count = 0;
+    let count2 = 70;
     let popupInterval;
     const popupAnimation = () => {
-      count++;
-      popup.style.cssText = `position: relative`;
-      popup.style.top = count + 'px';
-      if (count < 300) {
-        popupInterval = requestAnimationFrame(popupAnimation);
+      popupInterval = requestAnimationFrame(popupAnimation);
+      if (count < 560 && count2 < 560) {
+        count++;
+        count2++;
+        popup.style.cssText = `    width: 44rem;
+        display: block;
+        text-align: center;
+        left: 503px;
+        height: 470px;
+        margin-top: 30px;
+        background-color: #19b5fe;
+        `;
+        popup.style.left = count + 'px';
+        popupContent.style.left = count2 + 'px';
       } else {
         cancelAnimationFrame(popupInterval);
-            }
-          };
-
-    popupInterval = requestAnimationFrame(popupAnimation);
+        }
+        if (screen.width > 768) {
+          popupInterval = requestAnimationFrame(popupAnimation);
+       } else {
+        cancelAnimationFrame(popupInterval);
+       }
+    };
     
     popupBtn.forEach((elem) => {
       elem.addEventListener('click', () => {
           popup.style.display = 'block';
-          popupAnimation();
+          popupInterval = requestAnimationFrame(popupAnimation);
       });
     });
     popupClose.addEventListener('click', () => {
       popup.style.display = 'none';
     })
   }
-    
 
   togglePopUp();
 });

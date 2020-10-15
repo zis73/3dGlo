@@ -65,17 +65,15 @@ window.addEventListener('DOMContentLoaded', () => {
     let count = 0;
     let popupInterval;
     const popupAnimation = () => {
-      let max = Math.min(window.innerWidth - 520, 560) - 10;
+      //let max = Math.min(window.innerWidth - 520, 560) - 10;
     popupInterval = requestAnimationFrame(popupAnimation);
-      if (count < max) {
+      if (window.innerWidth > 768 && count < 500) {
         count += 10;
         popupContent.style.left = count + "px";
       } else {
+        popup.style.display = 'block';
         cancelAnimationFrame(popupInterval);
       }
-      if(window.screen.width < 768){
-        cancelAnimationFrame(popupInterval);
-     }
     };
     popupBtn.forEach((elem) => {
       elem.addEventListener('click', () => {
